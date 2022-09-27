@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div>{{counter}}</div>
+            <button v-on:click="increase">Click me!</button>
+        </div>
+    </body>
+        
+    <script>
+
+        const App = {
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods : {
+                increase(){
+                    this.counter += 1;
+                }
+            }
+        }
+
+        const vm = Vue.createApp(App).mount('#app')
+
+    </script>
+</html>
