@@ -1,20 +1,11 @@
 <template>
   <v-app id="inspire">
-    <v-system-bar app>
-      <v-spacer></v-spacer>
-
-      <v-icon>mdi-square</v-icon>
-
-      <v-icon>mdi-circle</v-icon>
-
-      <v-icon>mdi-triangle</v-icon>
-    </v-system-bar>
-
     <v-app-bar
       app
       clipped-right
       flat
       height="72"
+      color = "#1c2331"
     >
       <v-spacer></v-spacer>
 
@@ -33,11 +24,12 @@
       v-model="drawer"
       app
       width="300"
+      color = "#45526e"
     >
       <v-navigation-drawer
         v-model="drawer"
         absolute
-        color="grey lighten-3"
+        color="#2e3951"
         mini-variant
       >
         <v-avatar
@@ -58,7 +50,7 @@
       </v-navigation-drawer>
 
       <v-sheet
-        color="grey lighten-5"
+        color="#45526e"
         height="128"
         width="100%"
       ></v-sheet>
@@ -83,6 +75,7 @@
       app
       clipped
       right
+      color = "#2e3951"
     >
       <v-list>
         <v-list-item
@@ -97,25 +90,10 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-main>
-      <!--  -->
+    <v-main 
+    style="background: #7283a7">
+    "프론트 짜증나요"
     </v-main>
-
-    <v-footer
-      app
-      color="transparent"
-      height="72"
-      inset
-    >
-      <v-text-field
-        background-color="grey lighten-1"
-        dense
-        flat
-        hide-details
-        rounded
-        solo
-      ></v-text-field>
-    </v-footer>
   </v-app>
 </template>
 
