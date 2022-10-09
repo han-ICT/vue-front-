@@ -1,151 +1,62 @@
+
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12">
-        <v-img
-          :src="require('../assets/logo.svg')"
-          class="my-3"
-          contain
-          height="200"
-        />
-      </v-col>
+    <div>
+        <v-container fluid>
+            <v-layout column>
+                <v-flex xs12>
+                    <p class="subject">근무자에게 메세지 보내기</p>
+                </v-flex>
+                <v-flex column>
+                    <v-row>
+                        <v-col cols="2" md="2">
+                            <v-text-field v-model="employee_id" label="근무자ID" required></v-text-field>
+                        </v-col>
+                        <v-col cols="9" md="9">
+                            <v-text-field v-model="message" label="메세지 내용" required></v-text-field>
+                        </v-col>
+                    </v-row>
 
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
+                    <v-form ref="form" v-model="valid" lazy-validation>
+                        <v-btn @click="create" style="background: green">보내기</v-btn>
+                        <v-btn @click="clear" style="background: red">취소</v-btn>
+                    </v-form>
+                </v-flex>
 
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br>please join our online
-          <a
-            href="https://community.vuetifyjs.com"
-            target="_blank"
-          >Discord Community</a>
-        </p>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          What's next?
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Important Links
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col
-        class="mb-5"
-        cols="12"
-      >
-        <h2 class="headline font-weight-bold mb-3">
-          Ecosystem
-        </h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+                <!-- 근무자 표 !!. -->
+                <!-- 근무자 표 !!. -->
+                <p class="subject">근무자 현재 위치</p>
+                <v-flex class="userList" column>
+                    <v-card max-width="600" tile>
+                        <v-list-item v-for="(data, index) in propsdata" v-bind:key="index">
+                            <v-list-item-content>
+                                <v-list-item-title>employee_id : {{ data.employee_id }}</v-list-item-title>
+                                <v-list-item-subtitle>이름 : {{ data.name }}, 현재 위치: {{ data.location }}</v-list-item-subtitle>
+                            </v-list-item-content>
+                        </v-list-item>
+                    </v-card>
+                </v-flex>
+                <!-- 수정 부분 end -->
+            </v-layout>
+        </v-container>
+    </div>
 </template>
 
 <script>
-  export default {
-    name: 'HelloWorld',
-
-    data: () => ({
-      ecosystem: [
-        {
-          text: 'vuetify-loader',
-          href: 'https://github.com/vuetifyjs/vuetify-loader',
-        },
-        {
-          text: 'github',
-          href: 'https://github.com/vuetifyjs/vuetify',
-        },
-        {
-          text: 'awesome-vuetify',
-          href: 'https://github.com/vuetifyjs/awesome-vuetify',
-        },
-      ],
-      importantLinks: [
-        {
-          text: 'Documentation',
-          href: 'https://vuetifyjs.com',
-        },
-        {
-          text: 'Chat',
-          href: 'https://community.vuetifyjs.com',
-        },
-        {
-          text: 'Made with Vuetify',
-          href: 'https://madewithvuejs.com/vuetify',
-        },
-        {
-          text: 'Twitter',
-          href: 'https://twitter.com/vuetifyjs',
-        },
-        {
-          text: 'Articles',
-          href: 'https://medium.com/vuetify',
-        },
-      ],
-      whatsNext: [
-        {
-          text: 'Explore components',
-          href: 'https://vuetifyjs.com/components/api-explorer',
-        },
-        {
-          text: 'Select a layout',
-          href: 'https://vuetifyjs.com/getting-started/pre-made-layouts',
-        },
-        {
-          text: 'Frequently Asked Questions',
-          href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-        },
-      ],
-    }),
-  }
+export default {
+	props:["propsdata"]
+};
 </script>
+
+<style>
+.subject {
+    color: blue;
+    font-style: oblique;
+    font-size: 30px;
+    padding: 30px;
+    text-align: center;
+}
+.userList {
+    font-size: 200px;
+    margin: 30px 0px 30px 0px;
+}
+</style>
