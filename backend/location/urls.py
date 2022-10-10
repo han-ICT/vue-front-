@@ -8,7 +8,8 @@ router.register('',views.LocationViewSet)
 from . import views
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('location_list/', views.location_list),
-    path('<int:pk>/', views.person_location)
+    path('', include(router.urls)),
+    path('', include('rest_framework.urls', namespace='rest_framework_category')),
+    path('<int:pk>/', views.location_change),
 ]

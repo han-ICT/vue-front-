@@ -21,6 +21,7 @@ class LocationViewSet(viewsets.ModelViewSet):
 
 @api_view(['PUT'])
 def location_change(request, pk):
+    now_employee = ""
     try:
         now_employee = Location.objects.get(employee_id=pk)
     except now_employee.DoesNotExist:
