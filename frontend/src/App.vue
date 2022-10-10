@@ -147,8 +147,7 @@
 <script>
 import axios from "axios";
 import Main_Text from "./components/HelloWorld.vue";
-let url = "http://localhost:8000/location/";
-
+let url = "http://3.38.192.3:8000/location/";
 
 
 export default{
