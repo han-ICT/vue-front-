@@ -147,8 +147,8 @@
 <script>
 import axios from "axios";
 import Main_Text from "./components/HelloWorld.vue";
-let url = "http://3.38.192.3:8000/location/";
-
+let url = "http://k8s-default-backendi-6566bc7d31-1619657679.ap-northeast-2.elb.amazonaws.com/location/";
+window.setTimeout('window.location.reload()',5000);
 
 export default{
   data: () => {
